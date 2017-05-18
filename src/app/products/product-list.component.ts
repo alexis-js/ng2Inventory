@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {IProduct} from "./iproduct";
-import {ProductService} from "./product.service";
+import {IProduct} from './iproduct';
+import {ProductService} from './product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,6 +8,14 @@ import {ProductService} from "./product.service";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
+  pageTitle = 'Product List';
+  imageWidth = 50;
+  imageMargin = 2;
+  showImage = false;
+  listFilter = '';
+  products: IProduct[];
+  errorMessage: string;
 
   constructor(private _productService: ProductService) {
   }
@@ -32,12 +40,4 @@ export class ProductListComponent implements OnInit {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
-
-  pageTitle: string = 'Product List';
-  imageWidth: number = 50;
-  imageMargin: number = 2;
-  showImage: boolean = false;
-  listFilter: string = '';
-  products: IProduct[];
-  errorMessage: string;
 }

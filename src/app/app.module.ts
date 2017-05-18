@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 import {StarComponent} from './shared/star.component';
 import {WelcomeComponent} from './home/welcome.component';
@@ -11,6 +11,7 @@ import {AppComponent} from './app.component';
 import {ProductListComponent} from './products/product-list.component';
 import {ProductFilterPipe} from './products/product-filter.pipe';
 import {ProductDetailComponent} from './products/product-detail.component';
+import {ProductDetailGuard} from './products/product-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ProductDetailComponent} from './products/product-detail.component';
       },
       {
         path: 'product/:id',
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        canActivate: [ProductDetailGuard]
       },
       {
         path: 'welcome',
@@ -50,7 +52,7 @@ import {ProductDetailComponent} from './products/product-detail.component';
       }
     ])
   ],
-  providers: [],
+  providers: [ProductDetailGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
