@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {IProduct} from './iproduct';
 import {Http, Response} from '@angular/http';
+import {IProduct} from './iproduct';
 import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
