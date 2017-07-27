@@ -15,7 +15,7 @@ export class StarComponent implements OnChanges {
   }
 
   onRatingClicked() {
-    this.ratingClicked.emit(this.rating + " stars");
+    this.ratingClicked.emit(this.rating + ' stars');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
